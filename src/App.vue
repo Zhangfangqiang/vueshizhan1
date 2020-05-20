@@ -1,32 +1,52 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="wrap">
+
+    <!--头部组件开始-->
+    <TheHeader></TheHeader>
+    <!--头部组件结束-->
+
+    <!--路由视图开始-->
+    <div id="main-container" class="container main-container">
+      <router-view></router-view>
     </div>
-    <router-view/>
+    <!--路由视图结束-->
+
+    <!--脚部组件开始-->
+    <TheFooter></TheFooter>
+    <!--脚部组件结束-->
+
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import TheHeader from "@/components/layouts/TheHeader";
+  import TheFooter from "./components/layouts/TheFooter";
 
-#nav {
-  padding: 30px;
-}
+  export default {
+    name: 'App',
+    components: {
+      TheHeader,
+      TheFooter
+    }
+  }
+</script>
+<style lang="scss">
+  $container-large-desktop: 1200px;
+  $btn-primary-bg: #00b5ad;
+  $btn-primary-border: #00b5ad;
+  $label-primary-bg: #00b5ad;
+  $pagination-active-bg: #00b5ad;
+  $pagination-active-border: #00b5ad;
+  $pagination-color: #00b5ad;
+  $input-border-focus: #00b5ad;
+  $link-color: #12c4c5;
+  $link-hover-color: #22ddde;
+  $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+  $fa-font-path: "~font-awesome/fonts/";
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+  @import "~font-awesome/scss/font-awesome";
+  @import "./assets/css/extra.scss";
+  @import "./assets/css/main.scss";
 </style>
